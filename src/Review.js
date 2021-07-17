@@ -3,8 +3,11 @@ import people from './data';
 import './styles.css';
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
 const Review = () => {
+  //index is our state
   const [index, setIndex] = useState(0);
+  //people array destructure to smaller parts.همه ویژگیای افراد با این قسمته که تغییر میکنه
   const { name, job, image, text } = people[index];
+  //a function for checking number
   const checkNumber = (number) => {
     if (number > people.length - 1) {
       return 0;
@@ -14,20 +17,26 @@ const Review = () => {
     }
     return number;
   };
+
+  //a function for change profile to next one.
   const nextPerson = () => {
     setIndex((index) => {
       let newIndex = index + 1;
       return checkNumber(newIndex);
     });
   };
+
+  //a function for change profile to previous one.
   const prevPerson = () => {
     setIndex((index) => {
       let newIndex = index - 1;
       return checkNumber(newIndex);
     });
   };
+  //choose a randome person
   const randomPerson = () => {
     let randomNumber = Math.floor(Math.random() * people.length);
+    //handle equal situation
     if (randomNumber === index) {
       randomNumber = index + 1;
     }
