@@ -1,10 +1,17 @@
-import "./styles.css";
-
-export default function App() {
+import React from 'react';
+import Review from './Review';
+function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <main>
+      <section className='container'>
+        <div className='title'>
+          <h2>our reviews</h2>
+          <div className='underline'></div>
+        </div>
+        <Review />
+      </section>
+    </main>
   );
 }
+
+export default App;
